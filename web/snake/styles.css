@@ -1,0 +1,141 @@
+/* 贪吃蛇 - 样式 */
+:root {
+  --bg: #0f172a;           /* slate-900 */
+  --panel: #111827;        /* gray-900 */
+  --panel-2: #0b1220;
+  --grid: #0b2640;
+  --text: #e5e7eb;         /* gray-200 */
+  --muted: #94a3b8;        /* slate-400 */
+  --accent: #22c55e;       /* green-500 */
+  --accent-2: #16a34a;     /* green-600 */
+  --danger: #ef4444;       /* red-500 */
+  --snake: #34d399;        /* emerald-400 */
+  --snake-head: #10b981;   /* emerald-500 */
+  --apple: #f43f5e;        /* rose-500 */
+}
+
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, PingFang SC, Noto Sans CJK SC, "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  color: var(--text);
+  background:
+    radial-gradient(1200px 600px at 10% 10%, #0b1324 0%, transparent 70%),
+    radial-gradient(1000px 1000px at 90% 10%, #0b1d34 0%, transparent 60%),
+    linear-gradient(180deg, #0b1220, var(--bg));
+}
+
+.container {
+  width: min(92vw, 820px);
+  margin: 24px auto;
+}
+
+.title {
+  margin: 0 0 12px 0;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
+.hud {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  background: linear-gradient(180deg, var(--panel), var(--panel-2));
+  border: 1px solid #1f2937;
+  border-radius: 12px;
+  padding: 10px 12px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.35);
+}
+
+.stat { font-size: 15px; }
+.stat .label { color: var(--muted); margin-right: 6px; }
+
+.buttons { display: inline-flex; gap: 8px; }
+.btn {
+  appearance: none;
+  background: var(--accent);
+  color: #062f17;
+  border: none;
+  border-radius: 10px;
+  padding: 8px 14px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(34,197,94,0.25);
+}
+.btn:hover { background: var(--accent-2); }
+.btn:active { transform: translateY(1px); }
+.btn[aria-pressed="true"] { filter: saturate(0.8) brightness(0.9); }
+.btn.btn-secondary {
+  background: #334155;
+  color: #e2e8f0;
+  box-shadow: 0 4px 16px rgba(15,23,42,0.4);
+}
+.btn.btn-secondary:hover { background: #475569; }
+
+.stage { margin-top: 14px; }
+.canvas-wrap {
+  position: relative;
+  width: min(92vw, 720px);
+  aspect-ratio: 1 / 1; /* keeps a square */
+  background: radial-gradient(800px 800px at 50% 50%, #0b1b30, #06101e);
+  border: 1px solid #1f2937;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+#gameCanvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  text-align: center;
+  font-weight: 800;
+  line-height: 1.4;
+  color: #e2e8f0;
+  background: rgba(2,6,23,0.35);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  user-select: none;
+  transition: opacity .18s ease;
+}
+.overlay.hidden { opacity: 0; pointer-events: none; }
+.overlay .sub { display: block; font-weight: 600; color: var(--muted); margin-top: 8px; }
+
+.touch-controls {
+  margin-top: 14px;
+  display: grid;
+  gap: 8px;
+}
+.touch-controls .row { display: flex; justify-content: center; gap: 12px; }
+.ctrl {
+  min-width: 64px;
+  min-height: 48px;
+  font-size: 16px;
+  background: #0b2847;
+  border: 1px solid #1f2937;
+  color: #e2e8f0;
+  border-radius: 10px;
+  box-shadow: inset 0 0 0 1px rgba(148,163,184,0.05), 0 6px 18px rgba(2,6,23,0.4);
+}
+.ctrl:active { transform: translateY(1px); }
+.ctrl.wide { flex: 1; min-width: 120px; }
+
+.help {
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .touch-controls { display: none; }
+}

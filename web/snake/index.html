@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>贪吃蛇 Snake</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="container">
+    <h1 class="title">贪吃蛇</h1>
+
+    <section class="hud" aria-label="游戏信息">
+      <div class="stat"><span class="label">得分</span><span id="score">0</span></div>
+      <div class="stat"><span class="label">最高分</span><span id="highScore">0</span></div>
+      <div class="buttons">
+        <button id="pauseBtn" class="btn" aria-pressed="false">暂停</button>
+        <button id="restartBtn" class="btn btn-secondary">重开</button>
+      </div>
+    </section>
+
+    <section class="stage">
+      <div class="canvas-wrap">
+        <canvas id="gameCanvas" width="640" height="640" aria-label="游戏画布" role="img"></canvas>
+        <div id="overlay" class="overlay hidden" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section class="touch-controls" aria-label="触屏控制">
+      <div class="row">
+        <button id="btnUp" class="ctrl" aria-label="上">▲</button>
+      </div>
+      <div class="row">
+        <button id="btnLeft" class="ctrl" aria-label="左">◀</button>
+        <button id="btnDown" class="ctrl" aria-label="下">▼</button>
+        <button id="btnRight" class="ctrl" aria-label="右">▶</button>
+      </div>
+      <div class="row wide">
+        <button id="btnPause" class="ctrl wide" aria-label="暂停或继续">暂停/继续</button>
+        <button id="btnRestart" class="ctrl wide" aria-label="重开游戏">重开</button>
+      </div>
+    </section>
+
+    <p class="help">键盘: ↑ ↓ ← → 或 WASD，P/空格 暂停/继续，R 重开。</p>
+  </main>
+
+  <script src="game.js"></script>
+</body>
+</html>
