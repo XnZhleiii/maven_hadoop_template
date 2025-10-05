@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+  <title>贪吃蛇 Snake</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <main class="app">
+    <h1>贪吃蛇 Snake</h1>
+
+    <section class="hud">
+      <div class="hud-left">
+        <div class="stat"><span>分数</span> <strong id="score">0</strong></div>
+        <div class="stat"><span>最高</span> <strong id="highScore">0</strong></div>
+      </div>
+      <div class="hud-right">
+        <label class="speed">
+          <span>速度</span>
+          <select id="speedSelect" aria-label="速度">
+            <option value="200">慢</option>
+            <option value="140">中</option>
+            <option value="100" selected>快</option>
+            <option value="80">极快</option>
+          </select>
+        </label>
+        <button id="pauseBtn" class="btn">暂停</button>
+        <button id="restartBtn" class="btn btn-secondary">重新开始</button>
+      </div>
+    </section>
+
+    <canvas id="board" width="480" height="480" aria-label="游戏画布" role="img"></canvas>
+
+    <section class="dpad" aria-label="方向控制">
+      <button class="dpad-btn up" data-dir="up" aria-label="向上">▲</button>
+      <div class="middle">
+        <button class="dpad-btn left" data-dir="left" aria-label="向左">◀</button>
+        <button class="dpad-btn right" data-dir="right" aria-label="向右">▶</button>
+      </div>
+      <button class="dpad-btn down" data-dir="down" aria-label="向下">▼</button>
+    </section>
+
+    <p class="hint">键盘方向键/WASD 控制；手机可滑动或使用方向键。</p>
+  </main>
+
+  <script src="./main.js"></script>
+</body>
+</html>
